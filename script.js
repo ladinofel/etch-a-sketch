@@ -62,51 +62,45 @@ den_large.addEventListener('click', () => {
 }
 );
 
+let tone = '#000000';
 
+function chooseColor(){
   const color_input = document.querySelector('#color-picker');
   color_input.addEventListener('input', () => {
-    let color = color_input.value;
-    console.log(color);  
-})
+    tone = color_input.value;
+  })
+  
+}
 
-
-
-/*function paint(){
-  const canvas_painted_units = document.querySelectorAll('.canvas-units');
-  canvas_painted_units.forEach(unit => unit.addEventListener('mouseover', () => {
-    unit.style.background = color;  
-  }));
-};
-*/
-
+chooseColor();
 
 function paint(){
   const canvas_painted_units = document.querySelectorAll('.canvas-units');
   canvas_painted_units.forEach(unit => unit.addEventListener('mouseover', () => {
-    unit.classList.add('painted');  
+    unit.style.background = tone;
   }));
 };
 
-
 paint();
 
-
-
-
-/*const den_small = document.querySelector('.den-small');
-den_small.addEventListener('click', () => {
-  const canvas_units = document.querySelectorAll('.canvas-units');
-  canvas_units.forEach( function (canva_unit) {
-    canva_unit.classList.remove('canvas-units-medium');
-    canva_unit.classList.add('canvas-units-small');
-
-  });  
-   
+function erase() {
+const erase_btn = document.querySelector('.erase');
+erase_btn.addEventListener('click', () => {
+  tone = '#FFFFF0';
 })
-*/
+}
 
+erase();
 
+function multicolor() {
+  const multicolor_btn = document.querySelector('.multicolor');
+  multicolor_btn.addEventListener('click', () => {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    tone = '#' + randomColor;
+  });
+  }
 
+multicolor();
 
 
 
