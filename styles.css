@@ -1,9 +1,8 @@
 body {
-  background-color:ivory;
+  background-color: ivory;
 }
 
-h4 {
-  font-family: 'Josefin Sans', sans-serif;
+h1 {
   font-family: 'Lobster', cursive;
   font-size: 80px;
   margin: 0;
@@ -45,12 +44,8 @@ h4 {
   border:0px;
 }
 
-.canvas-units:hover {
-  background-color: black;
-}
-
-.painted {
-  background-color: red;
+.canvas-units {
+  background-color: white;
 }
 
 .left-content {
@@ -67,22 +62,74 @@ h4 {
   flex-direction: column;
 }
 
+.styling-btns,
 .density-btns {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.styling-btns {
+h2 {
+  text-align: center;
+  font-family: 'Lobster', cursive;
+}
+
+.color-area {
+  display: flex;
+  gap: 8px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-grid {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+}
+
+.btns-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns-bottom {
+  display: flex;
+}
+
+.grid-btn {
+  width: 300px;
+  margin: 10px;
+}
+
+#color-picker {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+#color-picker::-webkit-color-swatch {
+  border-radius: 15px;
+  border: none;
+}
+
+#color-picker::-moz-color-swatch {
+  border-radius: 15px;
+  border: none;
 }
 
 button {
+  background-color: #F6F1F4;
+  border-color: #EBF5F0;
+  border-radius: 15px;  
   padding: 10px;
 }
 
-h2 {
-  text-align: center;
+label {
+  font-size: 17px;
+  font-weight: 100;
 }
