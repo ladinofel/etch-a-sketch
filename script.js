@@ -88,13 +88,30 @@ function chooseColor(){
   })
 };
 
+//This piece of code allows the paint function to detect the mouse event
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
+
 //This function allows the user to 'paint' by changing the divs' background color to the desired color
 function paint(){
   const canvas_painted_units = document.querySelectorAll('.canvas-units');
-  canvas_painted_units.forEach(unit => unit.addEventListener('mouseover', () => {
-    unit.style.background = tone;
+  canvas_painted_units.forEach(unit => unit.addEventListener('mouseover', function (e) {
+    if(e.type === 'mouseover' && !mouseDown){
+      return
+    } else {
+      e.target.style.backgroundColor = tone;
+    }
   }))
-};
+  canvas_painted_units.forEach(unit => unit.addEventListener('mousedown', function (e) {
+    if(e.type === 'mouseover' && !mouseDown){
+      return
+    } else {
+      e.target.style.backgroundColor = tone;
+    }
+  }))
+}
 
 //BUTTON: This function allows the user to 'erase' by changing the divs' background color to white
 function erase() {
@@ -104,7 +121,6 @@ erase_btn.addEventListener('click', () => {
   clearInterval(multi_interval);
 })
 };
-
 
 //BUTTON: This function allows the user to 'paint' by changing the divs' background color randomly in intervals
 function multicolor() {
