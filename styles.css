@@ -16,36 +16,14 @@ h1 {
 
 .canvas {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 660px;
-  height: 510px;
-  border: solid black;
- 
-}
-
-.canvas-units-small {
-  height: 10px;
-  width: 10px;
-  border:0px;
-}
-
-.canvas-units-medium {
-  height: 15px;
-  width: 15px;
-  border:0px;
-}
-
-.canvas-units-large {
-  height: 30px;
-  width: 30px;
-  border:0px;
+  display: grid;
+  width: 500px;
+  height: 500px;
+  border: solid black; 
 }
 
 .canvas-units {
-  background-color: white;
+  background-color: white;  
 }
 
 .left-content {
@@ -54,6 +32,7 @@ h1 {
 }
 
 .right-content {
+  display: flex;
   flex-basis: 60%;
 }
 
@@ -62,8 +41,7 @@ h1 {
   flex-direction: column;
 }
 
-.styling-btns,
-.density-btns {
+.styling-btns {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -132,4 +110,30 @@ button {
 label {
   font-size: 17px;
   font-weight: 100;
+}
+
+dialog {
+  border-radius: 15px;
+
+}
+
+dialog::backdrop{
+  background: black;
+  opacity: .9;
+}
+
+.user-int {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.canvas-num {
+  width: 40px;
+  font-size: larger;
+}
+
+p {
+  display: flex;
+  justify-content: center;
 }

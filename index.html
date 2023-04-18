@@ -14,20 +14,21 @@
     <title>Etch a Sketch </title>
 </head>
 <body>
+  <dialog>
+    <h2>Welcome to Etch a Sketch</h2>
+    <p>Please enter the number of squares per side for your new canvas:</p>
+    <p>Maximum number of squares = 100</p>
+    <div class="user-int">
+      <input class="canvas-num"></input>
+      <button class="enter-btn">ENTER</button>
+    </div>
+  </dialog>
   <div class="heading">
     <h1>- Etch a Sketch -</h1>
   </div>
   <div class="center-content">
     <div class="left-content">
       <div class="controls">
-        <div class="density">
-          <h2>Pixel Density</h2>
-            <div class="density-btns">
-              <button class="den-small">Small</button>
-              <button class="den-medium">Medium</button>
-              <button class="den-large">Large</button>
-            </div>
-        </div>
         <div class="styling">
           <h2>Styling Options</h2>
             <div class="styling-btns">
@@ -37,8 +38,8 @@
               </div>
               <div class="btn-grid">
                 <div class="btns-top">
-                  <button class="grid-btn" id="multicolor">Multicolor</button>
-                  <button class="grid-btn" id="erase">Erase</button>
+                  <button class="grid-btn" id="multicolor" value="OFF">Multicolor</button>
+                  <button class="grid-btn" id="erase" value="OFF">Erase</button>
                 </div>
                 <div class="btns-bottom">
                   <button class="grid-btn" onclick="history.go(0);">Clear All</button>
