@@ -7,11 +7,13 @@ let user_value;
 function initialize(){
   const modal = document.querySelector('dialog');
   modal.showModal();
-  const user_input = document.querySelector('.enter-btn');
+  const user_input = document.querySelector('.start-btn');
   user_input.addEventListener('click', () => {
     const input_content = document.querySelector('input');
     if(input_content.value === ''){
-      alert('You must enter a value')}
+      alert('You must enter a value!');
+    } else if(input_content.value > 100 || input_content.value <= 0){
+        alert('The value you entered is not valid!');}
       else {
     user_value = input_content.value;
     createCanvas(user_value);
@@ -20,8 +22,6 @@ function initialize(){
       }
   })
 }
-
-initialize();
 
 //This function creates the initial canvas
 function createCanvas(user_value) {
@@ -34,7 +34,6 @@ function createCanvas(user_value) {
     canvas.appendChild(canvas_units); 
   }
 }
-
 
 //INPUT: This function allows the user to choose a color
 function chooseColor(){
@@ -49,11 +48,9 @@ let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
-
 //This function allows the user to 'paint' by changing the divs' background color to the desired color
 function paint(){
   const canvas_painted_units = document.querySelectorAll('.canvas-units');
-  console.log(canvas_painted_units);
   canvas_painted_units.forEach(unit => unit.addEventListener('mouseover', function (e) {
     if(e.type === 'mouseover' && !mouseDown){
       return
@@ -77,13 +74,11 @@ const color_input = document.querySelector('#color-picker');
 erase_btn.addEventListener('click', () => {
   if(erase_btn.value === 'OFF'){
     erase_btn.value = 'ON';
-    console.log(erase_btn.value);
     tone = '#FFFFFF';
     erase_btn.style.backgroundColor = 'white';
     erase_btn.style.borderColor = color_input.value;
   } else { 
       erase_btn.value = 'OFF';
-      console.log(erase_btn.value);
       tone = color_input.value;
       erase_btn.style.backgroundColor = '#F6F1F4';
       erase_btn.style.borderColor = '#EBF5F0';
@@ -98,7 +93,6 @@ function multicolor() {
   multicolor_btn.addEventListener('click', () => {
     if(multicolor_btn.value === 'OFF'){
       multicolor_btn.value = 'ON';
-      console.log(multicolor_btn.value);
       multi_interval = setInterval(() => {
         let randomColor = Math.floor(Math.random()*16777215).toString(16);
         tone = '#' + randomColor;
@@ -107,7 +101,6 @@ function multicolor() {
       multicolor_btn.style.borderColor = '#FDA4BA';
     } else {
       multicolor_btn.value = 'OFF';
-      console.log(multicolor_btn.value);
       clearInterval(multi_interval);
       tone = color_input.value;
       multicolor_btn.style.backgroundColor = '#F6F1F4';
@@ -115,8 +108,16 @@ function multicolor() {
     }})
   }
 
+  function clearAll(){
+    const clear_all = document.querySelector('#clear-all');
+    clear_all.addEventListener('click', () => {
+      const canvas_units = document.querySelectorAll('.canvas-units');
+      canvas_units.forEach(unit => unit.style.backgroundColor = 'white');
+    })
+    }
   
-
+initialize();    
+clearAll();
 multicolor();
 erase();
 chooseColor();

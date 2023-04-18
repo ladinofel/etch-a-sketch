@@ -131,6 +131,7 @@ dialog::backdrop{
 .canvas-num {
   width: 40px;
   font-size: larger;
+  text-align: center;
 }
 
 p {
