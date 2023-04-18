@@ -19,7 +19,7 @@
     <p>Please enter the number of squares per side for your new canvas:</p>
     <p>Maximum number of squares = 100</p>
     <div class="user-int">
-      <input class="canvas-num"></input>
+      <input class="canvas-num">
       <button class="start-btn">START</button>
     </div>
   </dialog>
@@ -43,6 +43,9 @@
                 </div>
                 <div class="btns-bottom">
                   <button class="grid-btn" id="clear-all">Clear All</button>
+                </div>
+                <div class="refresh">
+                  <button onclick="history.go(0);" id="start-over">Select a New Canvas</button>
                 </div>
               </div>
             </div>

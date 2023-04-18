@@ -23,7 +23,7 @@ function initialize(){
   })
 }
 
-//This function creates the initial canvas
+//This function creates the canvas
 function createCanvas(user_value) {
   const canvas = document.querySelector('.canvas');
   canvas.style.gridTemplateColumns = `repeat(${user_value} , 1fr)`;
@@ -67,29 +67,45 @@ function paint(){
   }))
 }
 
-//BUTTON: This function allows the user to 'erase' by changing the divs' background color to white
+//BUTTON: This function allows the user to 'erase' by changing the divs' background color to white and 
+// it disables all the other buttons
 function erase() {
 const erase_btn = document.querySelector('#erase');
 const color_input = document.querySelector('#color-picker');
+const multicolor_btn = document.querySelector('#multicolor');
+const clear_all = document.querySelector('#clear-all');
+const new_canvas = document.querySelector('#start-over')
 erase_btn.addEventListener('click', () => {
   if(erase_btn.value === 'OFF'){
     erase_btn.value = 'ON';
     tone = '#FFFFFF';
     erase_btn.style.backgroundColor = 'white';
     erase_btn.style.borderColor = color_input.value;
+    multicolor_btn.disabled = true;
+    clear_all.disabled = true;
+    color_input.disabled = true;
+    new_canvas.disabled = true;
   } else { 
       erase_btn.value = 'OFF';
       tone = color_input.value;
       erase_btn.style.backgroundColor = '#F6F1F4';
       erase_btn.style.borderColor = '#EBF5F0';
+      multicolor_btn.disabled = false;
+      clear_all.disabled = false;
+      color_input.disabled = false;
+      new_canvas.disabled = false;
     }})
 clearInterval(multi_interval);
 }
 
 //BUTTON: This function allows the user to 'paint' by changing the divs' background color randomly in intervals
+// and it disables all the other buttons
 function multicolor() {
   const multicolor_btn = document.querySelector('#multicolor');
   const color_input = document.querySelector('#color-picker');
+  const erase_btn = document.querySelector('#erase');
+  const clear_all = document.querySelector('#clear-all');
+  const new_canvas = document.querySelector('#start-over')
   multicolor_btn.addEventListener('click', () => {
     if(multicolor_btn.value === 'OFF'){
       multicolor_btn.value = 'ON';
@@ -99,15 +115,24 @@ function multicolor() {
         }, 50);
       multicolor_btn.style.backgroundColor = '#FDA4BA';
       multicolor_btn.style.borderColor = '#FDA4BA';
+      erase_btn.disabled = true;
+      clear_all.disabled = true;
+      color_input.disabled = true;
+      new_canvas.disabled = true;
     } else {
       multicolor_btn.value = 'OFF';
       clearInterval(multi_interval);
       tone = color_input.value;
       multicolor_btn.style.backgroundColor = '#F6F1F4';
       multicolor_btn.style.borderColor = '#EBF5F0';
+      erase_btn.disabled = false;
+      clear_all.disabled = false;
+      color_input.disabled = false;
+      new_canvas.disabled = false;
     }})
   }
 
+  //This function makes all divs' bacgroundColor white
   function clearAll(){
     const clear_all = document.querySelector('#clear-all');
     clear_all.addEventListener('click', () => {
@@ -115,6 +140,7 @@ function multicolor() {
       canvas_units.forEach(unit => unit.style.backgroundColor = 'white');
     })
     }
+
   
 initialize();    
 clearAll();

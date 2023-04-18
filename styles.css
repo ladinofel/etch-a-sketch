@@ -69,7 +69,7 @@ h2 {
   display: flex;
   justify-content: space-between;
 }
-
+ 
 .btns-bottom {
   display: flex;
 }
@@ -138,3 +138,14 @@ p {
   display: flex;
   justify-content: center;
 }
+
+.refresh {
+  display: flex;
+}
+
+#start-over {
+  flex-grow: 1;  
+  justify-content: center;
+  margin: 10px;
+}
+
