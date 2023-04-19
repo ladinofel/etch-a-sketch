@@ -45,8 +45,11 @@ function chooseColor(){
 
 //This piece of code allows the paint function to detect the mouse event
 let mouseDown = false;
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
+const listening_area = document.querySelector('.canvas');
+listening_area.onmousedown = () => (mouseDown = true);
+listening_area.onmouseup = () => (mouseDown = false);
+listening_area.onmouseleave = () => (mouseDown = false);
+
 
 //This function allows the user to 'paint' by changing the divs' background color to the desired color
 function paint(){
@@ -132,7 +135,7 @@ function multicolor() {
     }})
   }
 
-  //This function makes all divs' bacgroundColor white
+  //This function makes all divs' backgroundColor white
   function clearAll(){
     const clear_all = document.querySelector('#clear-all');
     clear_all.addEventListener('click', () => {
