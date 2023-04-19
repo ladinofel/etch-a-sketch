@@ -84,19 +84,13 @@ erase_btn.addEventListener('click', () => {
     tone = '#FFFFFF';
     erase_btn.style.backgroundColor = 'white';
     erase_btn.style.borderColor = color_input.value;
-    multicolor_btn.disabled = true;
-    clear_all.disabled = true;
-    color_input.disabled = true;
-    new_canvas.disabled = true;
+    multicolor_btn.disabled = clear_all.disabled = color_input.disabled = new_canvas.disabled = true;
   } else { 
       erase_btn.value = 'OFF';
       tone = color_input.value;
       erase_btn.style.backgroundColor = '#F6F1F4';
       erase_btn.style.borderColor = '#EBF5F0';
-      multicolor_btn.disabled = false;
-      clear_all.disabled = false;
-      color_input.disabled = false;
-      new_canvas.disabled = false;
+      multicolor_btn.disabled = clear_all.disabled = color_input.disabled = new_canvas.disabled = false;
     }})
 clearInterval(multi_interval);
 }
@@ -118,20 +112,14 @@ function multicolor() {
         }, 50);
       multicolor_btn.style.backgroundColor = '#FDA4BA';
       multicolor_btn.style.borderColor = '#FDA4BA';
-      erase_btn.disabled = true;
-      clear_all.disabled = true;
-      color_input.disabled = true;
-      new_canvas.disabled = true;
+      erase_btn.disabled = clear_all.disabled = color_input.disabled = new_canvas.disabled = true;
     } else {
       multicolor_btn.value = 'OFF';
       clearInterval(multi_interval);
       tone = color_input.value;
       multicolor_btn.style.backgroundColor = '#F6F1F4';
       multicolor_btn.style.borderColor = '#EBF5F0';
-      erase_btn.disabled = false;
-      clear_all.disabled = false;
-      color_input.disabled = false;
-      new_canvas.disabled = false;
+      erase_btn.disabled = clear_all.disabled = color_input.disabled = new_canvas.disabled = false;
     }})
   }
 
